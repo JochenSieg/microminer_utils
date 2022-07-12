@@ -1,0 +1,65 @@
+#! /bin/bash
+#$ -N anno_muts
+#$ -cwd
+#$ -l hostname=node042
+# -l notshared
+#$ -pe openmpi_pe 64
+#$ -q 64c.q
+# -l mem_total=350G
+# -l mem_free=300G
+#$ -o /scratch/sieg/mutscreen_hpc/cluster_out
+#$ -e /scratch/sieg/mutscreen_hpc/cluster_out
+
+#set -e
+
+N=64
+
+#dataset="protherm"
+
+ # source the conda env
+export PATH="/work/sieg/miniconda3/bin":$PATH
+source activate protPSI
+
+scripts_src_dir="/work/sieg/delme/tool_eval"
+
+local_work_dir="/ssd_local/sieg/jobs/${JOB_ID}"
+
+#mkdir -p "${local_work_dir}/exp"
+#cp -r ${scripts_src_dir} "${local_work_dir}"
+#cd "${local_work_dir}/$(basename ${scripts_src_dir})" || exit
+mkdir -p "${local_work_dir}"
+cd ${scripts_src_dir} || exit  # have to change their because of relative paths in config.ini
+
+# TODO das ist ein hotfix:
+ln -s /ssd_local/sieg/data/pdb/sym sym
+
+#echo "time python annotate.py --dataset ${dataset} -o "${local_work_dir}" --cpus ${N}"
+#time python annotate.py --dataset ${dataset} -o "${local_work_dir}" --cpus ${N}
+#time python screen_experiment.py --dataset ${dataset} -o "${local_work_dir}" --cpus ${N}
+
+time python pair_experiment.py --dataset protherm -o "${local_work_dir}" --cpus ${N}
+time python pair_experiment.py --dataset protherm -o "${local_work_dir}" --cpus ${N} --backward
+time python screen_experiment.py --dataset protherm -o "${local_work_dir}" --cpus ${N}
+time python screen_experiment.py --dataset protherm -o "${local_work_dir}" --cpus ${N} --backward
+time python annotate.py --dataset protherm -o "${local_work_dir}" --cpus ${N}
+
+time python pair_experiment.py --dataset thermomutdb -o "${local_work_dir}" --cpus ${N}
+time python pair_experiment.py --dataset thermomutdb -o "${local_work_dir}" --cpus ${N} --backward
+time python screen_experiment.py --dataset thermomutdb -o "${local_work_dir}" --cpus ${N}
+time python screen_experiment.py --dataset thermomutdb -o "${local_work_dir}" --cpus ${N} --backward
+time python annotate.py --dataset thermomutdb -o "${local_work_dir}" --cpus ${N}
+
+time python annotate.py --dataset skempi2 -o "${local_work_dir}" --cpus ${N}
+
+time python pair_experiment.py --dataset platinum -o "${local_work_dir}" --cpus ${N}
+time python pair_experiment.py --dataset platinum -o "${local_work_dir}" --cpus ${N} --backward
+time python screen_experiment.py --dataset platinum -o "${local_work_dir}" --cpus ${N}
+time python screen_experiment.py --dataset platinum -o "${local_work_dir}" --cpus ${N} --backward
+time python annotate.py --dataset platinum -o "${local_work_dir}" --cpus ${N}
+
+time python annotate.py --dataset prothermdb -o "${local_work_dir}" --cpus ${N}
+
+
+# Copy results from local node to NFS
+cp -r ${local_work_dir} "/work/sieg/delme/mut_res"
+
