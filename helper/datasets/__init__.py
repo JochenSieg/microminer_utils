@@ -1,48 +1,48 @@
 """
-The :mod: dataset module for reading mutation data sets.
+The :mod: dataset module for reading structure and mutation data sets.
 """
+from pathlib import Path
 
 import helper
 
-SUPPORTED_DATASETS = [
-    # mutation data sets
-    'protherm', 'prothermdb', 'thermomutdb', 'skempi2', 'platinum', 'shanthirabalan',
-    # other datasets
-    'pisces',
-    'scope',]
+from .afdb import AFDB
+from .dataset import DatasetCollection
+from .fireprotdb import FireProtDB
+from .pdb import PDB
+from .platinum import Platinum
+from .protherm import ProTherm
+from .prothermdb import ProThermDB
+from .shanthirabalan import Shanthirabalan
+from .skempi2 import SKEMPI2
+from .thermomutdb import ThermoMutDB
 
-MUTATION_DATASETS = [
-    'protherm', 'prothermdb', 'thermomutdb', 'skempi2', 'platinum', 'shanthirabalan'
-]
-MUTATION_DATASETS_WITH_STRUCTURE_PAIRS = ['protherm', 'thermomutdb', 'platinum', 'shanthirabalan']
+# register new datasets here
+dataset_collection = DatasetCollection()
+dataset_collection.register_dataset(ProTherm(Path(helper.CONFIG["DATA"]["PROTHERM"])))
+dataset_collection.register_dataset(Platinum(Path(helper.CONFIG["DATA"]["PLATINUM"])))
+dataset_collection.register_dataset(
+    ThermoMutDB(Path(helper.CONFIG["DATA"]["THERMOMUTDB"]))
+)
+dataset_collection.register_dataset(
+    ProThermDB(Path(helper.CONFIG["DATA"]["PROTHERMDB"]))
+)
+dataset_collection.register_dataset(SKEMPI2(Path(helper.CONFIG["DATA"]["SKEMPI2"])))
+dataset_collection.register_dataset(
+    Shanthirabalan(Path(helper.CONFIG["DATA"]["SHANTHIRABALAN"]))
+)
+dataset_collection.register_dataset(
+    FireProtDB(Path(helper.CONFIG["DATA"]["FIREPROTDB"]))
+)
+dataset_collection.register_dataset(PDB(Path(helper.CONFIG["DATA"]["PDB_DIR"])))
+dataset_collection.register_dataset(AFDB(Path(helper.CONFIG["DATA"]["AFDB_DIR"])))
 
-DATASETS_WITH_CUSTOM_STRUCTUREFILES = ['platinum', 'skempi2', 'scope']
 
-DATABASE_PATH_MAP = {
-    'protherm': helper.CONFIG['DATA']['PROTHERM'],
-    'prothermdb': helper.CONFIG['DATA']['PROTHERMDB'],
-    'thermomutdb': helper.CONFIG['DATA']['THERMOMUTDB'],
-    'skempi2': helper.CONFIG['DATA']['SKEMPI2'],
-    'platinum': helper.CONFIG['DATA']['PLATINUM'],
-    'shanthirabalan': helper.CONFIG['DATA']['SHANTHIRABALAN'],
-    'pisces': helper.CONFIG['DATA']['PISCES'],
-    'scope': None,  # scope IDs are inferred from the structure files in file system.
-}
+def get_dataset_collection():
+    """Get the module DatasetCollection instance providing all datasets available.
 
-if len(DATABASE_PATH_MAP) != len(SUPPORTED_DATASETS) or \
-        any((d not in DATABASE_PATH_MAP for d in SUPPORTED_DATASETS)):
-    raise Exception('Inconsistent data structures! Keep them in sync!')
+    :return: The dataset collection.
+    """
+    return dataset_collection
 
-# import functions for reading single mutations from each data set
-from .protherm.read import read_protherm_single
-from .thermomutdb.read import read_thermomutdb_single
-from .prothermdb.read import read_prothermdb_single
-from .skempi2.read import read_skempi2_single
-from .platinum.read import read_platinum_single
-from .shanthirabalan.read import read_shanthirabalan_single
 
-from . import skempi2
-from . import platinum
-from . import scope
-
-from .read import read_mutation_dataset_single
+DATASETS_WITH_CUSTOM_STRUCTUREFILES = ["skempi2", "platinum", "scope"]

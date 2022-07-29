@@ -1,0 +1,190 @@
+pdb_wild	pdb_mutant	wild_chain	wild_aa	seq_num	mutation_aa	reason
+2LZM	128L	A	A	93	T	both A
+1POH	1SPH	A	S	46	A	to D not A
+2LZM	1L68	A	N	68	A	both N
+1LZ1	1GAY	A	V	74	G	both V
+1LZ1	1GAZ	A	V	74	I	both V
+1LZ1	1GB2	A	V	74	M	both V
+1LZ1	1GB3	A	V	74	F	both V
+1LZ1	1GAY	A	V	110	G	both V
+1LZ1	1GAZ	A	V	110	I	both V
+1LZ1	1GB2	A	V	110	M	both V
+1LZ1	1GB3	A	V	110	F	both V
+1IV9	5O7R	A	S	76	Y	both S
+1RCH	1KVB	A	D	134	N	to H not N
+2RN2	1KVB	A	K	95	G	both K
+1LZ1	1GFV	A	V	2	I	both V
+1LZ1	1GFV	A	V	110	I	to N not I
+1LZ1	1GFV	A	V	74	M	both V
+1LZ1	1INU	A	V	110	A	to R not A
+1LZ1	1GFV	A	V	110	M	to N not M
+1LZ1	1GFV	A	V	110	G	to N not G
+1LZ1	1GFV	A	V	74	I	both V
+1LZ1	1INU	A	V	74	L	both V
+1LZ1	1INU	A	V	110	L	to R not L
+1LZ1	1INU	A	V	2	L	both V
+1LZ1	1INU	A	V	110	F	to R not F
+1LZ1	1GFV	A	V	74	G	both V
+1LZ1	1INU	A	V	74	F	both V
+1LZ1	1GFV	A	V	2	M	both V
+1LZ1	1INU	A	V	74	A	both V
+1LZ1	1INU	A	V	2	F	both V
+1LZ1	1INU	A	V	2	A	both V
+1LZ1	1GFV	A	V	2	G	both V
+1BTL	1ESU	A	E	48	L	custom numbering; both E
+1BTL	1ESU	A	G	78	A	custom numbering; both G
+1BTL	1ESU	A	S	82	H	custom numbering; both S
+1BTL	1ESU	A	F	60	Y	custom numbering; both F
+1BTL	1ESU	A	G	92	D	custom numbering; both G
+1XXN	2DCZ	A	N	32	D	both N
+1XXN	2DCZ	A	S	27	E	both S
+1XXN	2DCZ	A	N	54	E	both N
+1XXN	2DCZ	A	S	22	E	both S
+1XXN	2DCZ	A	N	181	R	both N
+1EY0	1EY8	A	L	36	K	both L
+1EY0	1EY8	A	V	23	E	both V
+1EY0	1EY8	A	L	36	E	both L
+1EY0	1EY8	A	V	23	K	both V
+4EYB	4RM5	A	D	95	N	both D
+4EYB	4RAW	A	E	152	K	both E
+4EYB	5JQJ	A	D	130	G	both D
+4BVM	6EW5	A	F	58	A	custom numbering; no F at pos in wild
+4BVM	4D6B	A	P	39	G	custom numbering; no P at pos 39 in wild. But at 40/38 is a P that is exchanged to G in the mutant. Seems shifted.
+4BVM	5N4M	A	I	43	N	custom numbering; both I
+4BVM	5N4Q	A	T	51	P	custom numbering; no T at pos 51 in wild. But at pos 52/50 is a T that is exchanged to P in the mutant. Seems shifted.
+4BVM	5N4P	A	I	52	T	custom numbering; no I at pos 52 in wild
+3MON	5O7R	A	W	3	C	both W
+3MON	5O7R	A	R	39	G	both R
+4FMP	6FZ7	A	L	184	F	custom numbering; both L
+4FMP	6FZA	A	A	187	F	custom numbering; both A
+4FMP	6FZ1	A	L	360	F	custom numbering; no L at pos 360 in wild. But at pos 355/359 is a L that is exchanged to F in the mutant. Seems shifted.
+1EKG	3S5E	A	L	198	C	custom numbering; both L
+1EKG	3S5E	A	L	200	C	custom numbering; both L
+1EKG	3S5F	A	L	203	C	custom numbering; both L
+4RE1	6HIL	A	Y	421	H	No pos 421 in wild
+1PGA	2KLK	A	A	34	H	no H but F (?). Not unambiguous. Structurally slightly diverging at site.
+1PGA	2RMM	A	A	34	H	no H but F (?). Structurally slightly diverging at site.
+1PGA	2K0P	A	Q	32	Y	both Q
+2JIE	2O9P	A	N	223	Y	both N
+2JIE	2O9P	A	E	167	A	both E
+2JIE	2O9P	A	N	223	R	both N
+2JIE	2O9P	A	N	223	G	both N
+2JIE	2O9P	A	T	221	A	both T
+2JIE	2O9P	A	C	170	A	both C
+2JIE	2O9P	A	W	402	R	both W
+2JIE	2O9P	A	N	223	H	both N
+2JIE	2O9P	A	C	170	Q	both C
+2JIE	2O9P	A	W	123	F	both W
+2JIE	2O9P	A	H	104	R	both H
+2JIE	2O9P	A	I	247	E	both I
+2JIE	2O9P	A	Y	297	A	both Y
+2JIE	2O9P	A	W	123	H	both W
+2JIE	2O9P	A	I	247	N	both I
+2JIE	2O9P	A	S	19	A	both S
+2JIE	2O9P	A	S	403	A	both S
+2JIE	2O9P	A	E	426	S	both E
+2JIE	2O9P	A	E	409	A	both E
+2JIE	2O9P	A	W	412	Y	both W
+2JIE	2O9P	A	N	407	A	both N
+2JIE	2O9P	A	L	174	R	both L
+2JIE	2O9P	A	R	243	D	both R
+2JIE	2O9P	A	N	407	C	both N
+2JIE	2O9P	A	N	296	C	both N
+2JIE	2O9P	A	F	418	A	both F
+2JIE	2O9P	A	R	243	A	both R
+2JIE	2O9P	A	Q	22	S	both Q
+2JIE	2O9P	A	W	402	C	both W
+2JIE	2O9P	A	N	223	A	both N
+2JIE	2O9P	A	L	174	A	both L
+2JIE	2O9P	A	E	409	D	both E
+2JIE	2O9P	A	W	328	R	both W
+2JIE	2O9P	A	T	18	A	both T
+2JIE	2O9P	A	W	328	A	both W
+2JIE	2O9P	A	S	17	A	both S
+2JIE	2O9P	A	M	326	A	both M
+2JIE	2O9P	A	S	334	A	both S
+2JIE	2O9P	A	R	243	K	both R
+2JIE	2O9P	A	E	225	H	both E
+2JIE	2O9P	A	Y	297	F	both Y
+2JIE	2O9P	A	E	157	D	both E
+2JIE	2O9P	A	N	296	A	both N
+2JIE	2O9P	A	W	328	H	both W
+2JIE	2O9P	A	W	328	C	both W
+2JIE	2O9P	A	T	355	A	both T
+2JIE	2O9P	A	N	166	C	both N
+2JIE	2O9P	A	N	166	A	both N
+2JIE	2O9P	A	Y	21	A	both Y
+2JIE	2O9P	A	M	224	A	both M
+2JIE	2O9P	A	E	225	A	both E
+1BNI	1BGD	A	I	96	V	different proteins
+2RN2	1RBN	A	K	95	N	different proteins
+1LZ1	1YAG	A	I	89	V	different proteins
+1LZ1	1GA2	A	V	2	I	different proteins
+1LZ1	1GA0	A	V	2	L	different proteins
+1LZ1	1GA0	A	V	74	L	different proteins
+1LZ1	1GA0	A	V	110	L	different proteins
+1ARR	1MYK	A	P	8	L	nearby terminus unresolved in 1MYK
+2LZM	1QTH	A	A	98	M	adjacent C 97 A
+1BPI	1BPT	A	Y	23	A	terminal G57,A58 unresolved in 1BPT
+4LYZ	1JKB	A	E	35	A	multiple mutations; adjacent F 34 W
+2LZM	1QS5	A	A	98	L	adjacent C 97 A
+2LZM	1L95	A	F	153	V	C 97 A within 6.5A
+2LZM	1L86	A	F	153	I	C 97 A within 6.5A
+2LZM	1L85	A	F	153	A	C 97 A within 6.5A
+2LZM	244L	A	I	100	A	near mutation C 97 A
+2LZM	1L55	A	D	92	N	near mutation C 97 A
+2LZM	1QSB	A	A	98	C	adjacent C 97 A
+2LZM	1QS9	A	A	98	V	adjacent C 97 A
+2LZM	1L88	A	F	153	M	C 97 A within 6.5A
+2LZM	1L77	A	M	102	L	near mutation C 97 A
+2LZM	1L66	A	K	43	A	C 54 T within 6.5A
+2LZM	1L87	A	F	153	L	C 97 A within 6.5A
+2LZM	125L	A	A	98	S	adjacent C 97 A
+2LZM	1L90	A	L	99	A	near mutation C 97 A
+2LZM	243L	A	I	58	A	near mutation C 54 T
+2LZM	1L67	A	L	46	A	near mutation C 54 T
+2LZM	126L	A	V	149	T	C 97 A within 6.5A
+2LZM	1L65	A	D	47	A	near mutation C 54 T
+2LZM	224L	A	A	93	S	near mutation C 97 A
+2LZM	1L91	A	L	99	F	near mutation C 97 A
+2LZM	129L	A	A	93	T	near mutation C 97 A
+2LZM	1L94	A	L	99	V	near mutation C 97 A
+2LZM	1L92	A	L	99	I	near mutation C 97 A
+2LZM	1L93	A	L	99	M	near mutation C 97 A
+1LZ1	2BQO	A	V	99	A	near mutation C 95 A
+1LZ1	2BQN	A	V	93	A	near mutation C 95 A
+1LZ1	2BQE	A	I	59	V	near mutation C 95 A
+1LZ1	2BQG	A	V	100	A	C 95 A within 6.5A
+1LZ1	2BQM	A	V	74	A	near mutation C 77 A
+2LZM	242L	A	I	50	A	near mutation C 54 T
+2LZM	237L	A	V	149	A	C 97 A within 6.5A
+2LZM	230L	A	M	6	L	near mutation C 97 A
+2LZM	1L54	A	M	102	K	near mutation C 97 A
+2LZM	1QUD	A	L	99	G	near mutation C 97 A
+1PGA	6HKA	A	A	34	L	different proteins
+1R2Y	3GQ9	A	R	244	E	different proteins
+4EYB	5JQJ	A	M	154	V	Q 151 R within 6.5A
+1OH0	1DMM	A	Y	57	F	near chain break in 1DMM
+2J8C	3DUQ	M	N	5	D	nearby terminus unresolved in 3DUQ
+2ILI	4QK1	A	K	170	P	terminal H3 unresolved in 4QK1
+2ILI	3RGE	A	W	5	H	terminal H3,H4 unresolved in 3RGE
+1LW9	1LLH	A	T	157	I	terminal N163,L164 unresolved in 1LLH
+1U5B	1X7X	A	S	292	E	Specified position is not resolved in 1X7X
+1U5B	1X7Y	A	S	292	N	Specified position is not resolved in 1X7Y
+1U5B	1X7W	A	S	292	Q	Specified position is not resolved in 1X7W
+2CA8	2F8F	A	Y	10	F	terminal A207,A208,T209,P210,F211 unresolved in 2F8F
+3DTB	3MOH	A	A	467	G	Specified position is not resolved in 3MOH
+3DT7	3MOE	A	A	467	G	Specified position is not resolved in 3MOE
+2RN5	1KVB	A	D	134	N	different proteins
+1R2Y	3GQ8	A	Q	234	R	different proteins
+2RN4	1KVB	A	K	95	G	different proteins
+2EWN	4WF2	A	G	142	A	4WF2 has nearby chain break
+3NU3	3NU5	A	I	50	V	PPI: near other mutation chain B I 150 V
+3OXC	3CYX	A	I	50	V	PPI: near other mutation chain B I 150 V
+2Z4O	2QD6	A	I	50	V	PPI: near other mutation chain B I 150 V
+2JBZ	2WDY	A	D	111	A	PPI. Chain C missing in 2WDY
+1CNQ	1YXI	A	A	54	L	PPI. Chain C missing in 1YXI
+2TDM	1TSY	A	R	179	K	PPI. Chain B missing in 1TSY
+2TDM	1TSV	A	R	179	A	PPI. Chain B missing in 1TSV
+1AMK	1QDS	A	E	65	Q	PPI. Chain B missing in 1QDS
+2JBZ	2WDS	A	H	110	A	PPI. Chain C missing in 2WDS

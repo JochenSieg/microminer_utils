@@ -1,15 +1,21 @@
 import pandas as pd
 from pathlib import Path
-import json
-import helper
 import logging
+
+from helper import CONFIG
+from helper.datasets.utils import get_divided_dir_name
+from helper.utils import scantree
 
 logger = logging.getLogger(__name__)
 
 
 def read_scope_classification_file() -> pd.DataFrame:
+    """Read in the SCOPe mapping file with all metadata to the contained structures.
 
-    mapping_file = Path(helper.constants.CONFIG['DATA']['SCOPE_MAPPING'])
+    :return: Table with SCOPe metadata.
+    """
+
+    mapping_file = Path(CONFIG["DATA"]["SCOPE_MAPPING"])
 
     # Mapping file HEADER description from SCOPe website https://scop.berkeley.edu:
     # sid
@@ -35,45 +41,65 @@ def read_scope_classification_file() -> pd.DataFrame:
     # domain uniquely ('_' if not). Sids are currently all lower case, even when the chain letter
     # is upper case. Example sids include d4akea1, d9hvpa_, and d1cph.1.
 
-    columns = ['sid', 'pdbid', 'description', 'sccs', 'sunid', 'sunids_ancestors']
-    usecols = [columns.index(_) for _ in ['sid', 'pdbid', 'sccs']]
+    columns = ["sid", "pdbid", "description", "sccs", "sunid", "sunids_ancestors"]
+    usecols = [columns.index(_) for _ in ["sid", "pdbid", "sccs"]]
 
+    # A line in the mapping file looks like this:
     # d1ux8a_ 1ux8    A:      a.1.1.1 113449  cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=116748,px=113449
-    df = pd.read_csv(mapping_file, sep='\s+', comment='#', header=None, names=columns,
-                     usecols=usecols)
+    df = pd.read_csv(
+        mapping_file,
+        sep="\s+",
+        comment="#",
+        header=None,
+        names=columns,
+        usecols=usecols,
+    )
     return df
 
 
 def read_scope() -> pd.DataFrame:
-    log_prefix = 'SCOPe: '
+    """Read SCOPe structure file paths, IDs and classification to a table.
 
-    data_dir = Path(helper.constants.CONFIG['DATA']['SCOPE_DATA_DIR'])
+    :return: Table of SCOPe data sets data.
+    """
+    log_prefix = "SCOPe: "
+
+    data_dir = Path(CONFIG["DATA"]["SCOPE_DATA_DIR"])
 
     # path should be a dir from which we scan the files.
     if not data_dir.is_dir():
-        raise ValueError('SCOPe data dir must be a directory of PDB-style files.'
-                         ' Download from SCOPe website.')
+        raise ValueError(
+            "SCOPe data dir must be a directory of PDB-style files."
+            " Download from SCOPe website."
+        )
 
     df = read_scope_classification_file()
 
-    pdb_files = [p for p in helper.utils.scantree(data_dir) if p.suffixes[-1] == '.ent']
+    pdb_files = [p for p in scantree(data_dir) if p.suffixes[-1] == ".ent"]
     sid_set = set([p.stem for p in pdb_files])
     if len(pdb_files) != len(sid_set):
-        raise ValueError('SCOPEe PDBstyle dir contains duplicate PDB files')
-    df = df[df['sid'].isin(sid_set)]
+        raise ValueError("SCOPEe PDBstyle dir contains duplicate PDB files")
+    df = df[df["sid"].isin(sid_set)]
     assert len(pdb_files) == df.shape[0]
 
-    logger.info(log_prefix + f'read {df.shape[0]} domains, which are from'
-                             f' {len(df["pdbid"].unique())} PDB IDs.')
+    logger.info(
+        log_prefix + f"read {df.shape[0]} domains, which are from"
+        f' {len(df["pdbid"].unique())} PDB IDs.'
+    )
     return df
 
 
 def read_scope_pdbstyle(sid: str) -> Path:
-    pdb_dir = Path(helper.CONFIG['DATA']['SCOPE_DATA_DIR'])
+    """Get the SCOPe structure file path from SCOPes sid.
+
+    :param sid: The sid.
+    :return: Path to structure file.
+    """
+    pdb_dir = Path(CONFIG["DATA"]["SCOPE_DATA_DIR"])
     # filename is sid + .ent. Looks like this: d5zzwa_.ent
-    filename = '{}.ent'.format(sid)
+    filename = "{}.ent".format(sid)
     pdbid = sid[1:5]
-    path = pdb_dir / helper.utils.get_divided_dir_name(pdbid) / filename
+    path = pdb_dir / get_divided_dir_name(pdbid) / filename
     if not path.is_file():
-        raise FileNotFoundError('Could not find SCOPe PDB file: {}'.format(path))
+        raise FileNotFoundError("Could not find SCOPe PDB file: {}".format(path))
     return path
