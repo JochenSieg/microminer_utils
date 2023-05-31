@@ -32,7 +32,7 @@ run_search() {
   fi
 }
 
- benchmark: try to re-find known structure pairs of wild-type/mutant with MicroMiner
+# benchmark: try to re-find known structure pairs of wild-type/mutant with MicroMiner
 python create_dataset.py \
   --dataset protherm thermomutdb platinum shanthirabalan \
   -o "${work_dir}"
