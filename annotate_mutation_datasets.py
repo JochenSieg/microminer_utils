@@ -88,7 +88,7 @@ def main():
     b4 = df_mm.shape[0]
 
     # filter MM results similarity measures: drop all hits with too low global sequence identity
-    df_mm.drop(df_mm[df_mm["fullSeqId"] < 0.4].index, inplace=True)
+    # df_mm.drop(df_mm[df_mm["fullSeqId"] < 0.4].index, inplace=True)
     # drop exact duplicate hits if there are any.
     df_mm.drop_duplicates(
         inplace=True,
