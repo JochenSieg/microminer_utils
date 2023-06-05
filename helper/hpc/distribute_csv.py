@@ -136,7 +136,7 @@ def generate_hpc_script(
 # exclude nodes which disc storage is too small to hold the PDB locally. TODO: they might change
 # we need to use PDB locally because the number of reads per sec is too much for the NFS at /data
 # effectively killing the HPC nodes. 
-#$ -l h='!node014&!node113&!node089&!node107'
+#$ -l h='!node113'
 
 
 # avoid core dumps. 

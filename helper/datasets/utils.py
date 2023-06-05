@@ -50,13 +50,13 @@ def get_pdb_file_path_from_standard(pdbid: str, allow_obsolete: bool = True) -> 
     )
     path = pdb_dir / filename
     if not path.is_file():
-        if allow_obsolete and CONFIG["DATA"]["PDB_OBSOLETE_DIR"]:
+        path = pdb_dir / get_divided_dir_name(pdbid) / filename
+        if not path.is_file() and allow_obsolete and CONFIG["DATA"]["PDB_OBSOLETE_DIR"]:
             path = (
                 Path(CONFIG["DATA"]["PDB_OBSOLETE_DIR"])
                 / get_divided_dir_name(pdbid)
                 / filename
             )
-            if path.is_file():
-                return path
+        if not path.is_file():
             raise FileNotFoundError("Could not find PDB file: {}".format(path))
     return path

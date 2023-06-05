@@ -3,7 +3,6 @@ from pathlib import Path
 import logging
 
 from helper import CONFIG
-from helper.datasets.utils import get_divided_dir_name
 from helper.utils import scantree
 
 logger = logging.getLogger(__name__)
@@ -99,7 +98,7 @@ def read_scope_pdbstyle(sid: str) -> Path:
     # filename is sid + .ent. Looks like this: d5zzwa_.ent
     filename = "{}.ent".format(sid)
     pdbid = sid[1:5]
-    path = pdb_dir / get_divided_dir_name(pdbid) / filename
+    path = pdb_dir / pdbid[1:3].lower() / filename
     if not path.is_file():
         raise FileNotFoundError("Could not find SCOPe PDB file: {}".format(path))
     return path

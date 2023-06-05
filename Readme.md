@@ -1,6 +1,6 @@
 # MicroMiner Utils
 
-MicroMiner searches local residue-centered 3D micro-environments in protein structure databases.
+MicroMiner searches similar local residue-centered 3D micro-environments in protein structure databases.
 
 This repository provides auxiliary scripts and utility to annotate mutation datasets (like ProTherm)
 with structures for the mutants.
@@ -11,10 +11,10 @@ downloaded as part of the [NAOMI ChemBio Suite](https://uhh.de/naomi).
 Single mutations extracted from the PDB can be downloaded [here](TODO). These data sets contain amino acid
 pairs in protein structures exemplifying single mutations' local structural effects with multiple
 similarity measurements, like RMSD: 
-* single mutations in monomers (2.5 billion pairs)
-* single mutations in monomers (filtered) (5 million pairs)
-* single mutation at PPIs (46 million pairs)
-* single mutation at PPIs (filtered) (800,000 pairs)
+* single mutations in monomers (255 million pairs)
+* single mutations in monomers (filtered) (~5 million pairs)
+* single mutation at PPIs (~45 million pairs)
+* single mutation at PPIs (filtered) (~800,000 pairs)
 
 Mutations from and to non-standard residues can be also downloaded
 in a separate file from the link above.
@@ -28,7 +28,7 @@ pip install -r requirements.txt
  ```
 
 Download the [NAOMI suite](https://uhh.de/naomi) to get the MicroMiner executable and package. 
-Follow instructions in the MicroMiner package to set up a search index.
+Follow instructions in the MicroMiner package readme file.
 
 Set paths and parameters in [config.ini](config.ini) accordingly. 
 
@@ -55,11 +55,7 @@ them from their respective sites and set the paths in config.ini:
 
 Note that some of these datasets like SKEMPI2 and Platinum come with custom prepared PDB files.
 
-## Annotate custom mutation effect data sets with structures for the mutant
-
-Coming.
-
-## Reproduce experiments
+## Reproduce experiments from the paper
 
 To reproduce the results from the paper run the following commands.
 
@@ -77,7 +73,7 @@ sh run_mutation_annotation.sh
 python annotate_mutation_datasets.py -d protherm thermomutdb platinum prothermdb skempi2 fireprotdb -m results/mutation_annotation/search -o .
 python annotation_statistics.py -d protherm thermomutdb platinum prothermdb skempi2 fireprotdb -m results/mutation_annotation/search -o .
 ```
-Then run the notebook `annotation_analysis.ipynb.ipynb` to generate the plot.
+Then run the notebook `annotation_analysis.ipynb` to generate the plot.
 
 ### single mutations in the PDB
 
